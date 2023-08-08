@@ -1,0 +1,156 @@
+(function ($) {
+    'use strict';
+    window.globalArrayForSearch = [];
+
+    var faqObject = {
+        ajaxMethod: function (methodType, route, dataType, dataBlock, callbackFunction, context) {
+            $.ajax({
+                async: true,
+                type: methodType,
+                dataType: dataType,
+                url: route,
+                data: dataBlock
+            }).then(function (data) {
+                if (callbackFunction != null && context != null) {
+                    callbackFunction(context, data);
+                }
+                return data;
+            });
+        },
+        generateSearchArray: function (context, response) {
+            globalArrayForSearch = response;
+        },
+        searchFunction: function () {
+
+        },
+        clickMethods: function (catID) {
+            var results = [];
+            var objects = globalArrayForSearch;
+console.log(objects)
+            for (var i = 0; i < objects.length; i++) {
+                if (objects[i].categories_id.indexOf(catID) != -1) {
+                    results.push(objects[i]);
+                }
+            }
+
+            this.filterFAQ(results);
+
+        },
+        getAllFAQs: function () {
+            var objects = globalArrayForSearch;
+            var active;
+
+            $('#filter-results').removeClass('animateend').addClass('animateblock').empty();
+
+            for (var i = 0; i < objects.length; i++) {
+                if (i === 0) {
+                    active = 'active';
+                } else {
+                    active = '';
+                }
+                var createDIV = $('<div class="accordion"></div>');
+                var title = $('<h3>' + objects[i].title + '<i class="fa fa-angle-down"></i></h3>');
+                var content = $('<div class="accordion-content ' + active + '">' + objects[i].content + '</div><div class="line"></div>');
+
+                createDIV.append(title).append(content);
+
+                $('#filter-results').append(createDIV);
+                setTimeout(function () {
+                    $('#filter-results').removeClass('animateblock').addClass('animateend');
+                }, 400)
+            }
+        },
+        filterFAQ: function (results) {
+            var active;
+
+            $('#filter-results').removeClass('animateend').addClass('animateblock').empty();
+
+            if (results.length === 0) {
+                $('#filter-results').text('NO RESULTS');
+                setTimeout(function () {
+                    $('#filter-results').removeClass('animateblock').addClass('animateend');
+                }, 400);
+                return;
+            }
+
+            for (var i = 0; i < results.length; i++) {
+                if (i === 0) {
+                    active = 'active';
+                } else {
+                    active = '';
+                }
+                var createDIV = $('<div class="accordion"></div>')
+                var title = $('<h3>' + results[i].title + '<i class="fa fa-angle-down"></i></h3>');
+                var content = $('<div class="accordion-content ' + active + '">' + results[i].content + '</div><div class="line"></div>');
+
+                createDIV.append(title).append(content);
+
+                $('#filter-results').append(createDIV);
+                setTimeout(function () {
+                    $('#filter-results').removeClass('animateblock').addClass('animateend');
+                }, 400)
+            }
+        },
+        liveSearch: function (searchValue) {
+            var lowersearchValue = searchValue.toLowerCase();
+            var results = [];
+            var objects = globalArrayForSearch;
+
+            for (var i = 0; i < objects.length; i++) {
+
+                var titleToSearch = objects[i].title;
+                titleToSearch = titleToSearch.toLowerCase();
+
+                if (titleToSearch.indexOf(lowersearchValue) != -1) {
+                    results.push(objects[i]);
+                }
+            }
+
+            this.filterFAQ(results);
+        },
+        accordionFunc: function (accordionContent) {
+            $('.accordion-content').slideUp();
+            accordionContent.slideToggle();
+
+        },
+        init: function () {
+
+            var wpRoute = wpRestRoutes.faq;
+            var self = this;
+            var jsonData = new Promise(function (resolve, reject) {
+                resolve(self.ajaxMethod("GET", wpRoute, "json", '', self.generateSearchArray, ''));
+            });
+
+            return jsonData;
+        }
+    };
+
+    faqObject.init();
+
+    $(document).on('click', '.tesla-faq-list li', function () {
+
+        if ($(this).hasClass('all-cat')) {
+            faqObject.getAllFAQs();
+            return;
+        }
+        var catID = $(this).data('id');
+        faqObject.clickMethods(catID);
+
+        $('.tesla-faq-list li').removeClass('active');
+        $(this).addClass('active');
+
+        if (!$(this).parent().hasClass('children')) {
+            $('ul.children').removeClass('active');
+            $(this).next().addClass('active');
+        }
+    });
+
+    $(document).on('click', '.accordion h3', function () {
+        faqObject.accordionFunc($(this).next('.accordion-content'));
+    });
+
+    $(document).on('keyup', '#search-faq', function () {
+        var searchValue = $(this).val();
+        faqObject.liveSearch(searchValue);
+    })
+})(jQuery);

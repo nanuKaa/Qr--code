@@ -1,0 +1,209 @@
+.comparebox {
+    background: #6fcff0;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    position: fixed;
+    right: 20px;
+    bottom: 350px;
+    display: -webkit-flex;
+    display: flex;
+    cursor: pointer;
+    z-index: 111;
+    justify-content: center;
+    align-items: center;
+    transition: all 2s ease;
+}
+.compare .share-button +#share-modal {top: 40px}
+
+.comparebox p {
+    position: absolute;
+    top: 60px;
+    font-size: 12px!important;
+    line-height: 1!important;
+}
+
+
+
+.specs {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+}
+.spec-table-row
+{
+    flex-grow: 1;
+}
+
+.item {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+}
+.remove-compare-item {
+    cursor: pointer;
+    margin-bottom: 30px
+}
+
+
+.compare-success-box {
+    background: #7ccff1;
+    position: fixed;
+    right: 100px;
+    bottom: 290px;
+    display: -webkit-flex;
+    display: flex;
+    width: 470px;
+    padding: 60px 15px;
+    z-index: 99999;
+    border-radius: 20px;
+    justify-content: center;
+}
+
+.compare-success-box svg {
+    position: absolute;
+    width: 20px;
+    right: -20px;
+    top: 68px;
+}
+
+.compare-success-box p {
+    max-width: 230px;
+    font-size: 18px;
+    color: #0c0c0d;
+    text-align: center;
+}
+
+.comparebox svg {
+    width: 15px
+}
+
+.comparebox span {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: #000;
+    color: #fff;
+    text-align: center;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: -9px;
+    top: -5px;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.change.compare-success-box {
+    bottom: 235px;
+}
+
+.change-category {
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 40px;
+    padding: 9px 15px;
+    display: inline-block;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+.change-category:hover {
+    color: #fff!important;
+}
+
+.page-template-page-compare .comparebox {display: none}
+
+.compare .box .image + p+p {
+     min-height: 45px;
+ }
+@media screen and (max-width: 768px){
+    .comparebox {
+        width: 40px;
+        height: 40px;
+        right: 13px;
+        bottom: 295px;
+    }
+    .page-template-page-compare .col-sm-3 {min-width: 75%}
+    .comparebox span {
+        width: 20px;
+        height: 20px;
+        right: -9px;
+        top: -5px;
+        font-size: 11px;
+    }
+
+    .comparebox p {
+        top: 40px;
+    }
+
+    .compare .share-c + .container > .row
+    {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start!important;
+
+    }
+
+    .compare .spec-table-row {
+        margin-bottom: 15px!important;
+    }
+    .compare .spec-table-left {
+        font-size: 16px!important;
+        margin-bottom: 5px!important;
+    }
+    .compare .box .image {
+        height: 160px!important;
+    }
+    .compare .box .image + p,.compare .box .image + p+p {
+        margin: 15px 0 5px!important;
+    }
+    .compare .box {
+        padding: 30px!important;
+    }
+    .remove-compare-item {
+        margin-bottom: 15px!important;
+    }
+    .share-c {
+        margin-bottom: 30px!important;
+    }
+    .compare-success-box {
+        right: 70px;
+        bottom: 267px;
+        width: 160px;
+        padding: 17px 15px;
+    }
+    .compare-success-box svg {
+        position: absolute;
+        width: 14px;
+        right: -13px;
+        top: 38px;
+    }
+
+    .share-c .share-button svg {
+        width: 18px!important;
+        margin-right: 8px!important;
+    }
+    .compare h2 {
+        margin: 25px 0!important;
+    }
+    .change-category {
+        padding: 9px 10px;
+        margin-right: 0;
+        font-size: 12px;
+        margin-bottom: 2px;
+    }
+    .change-cancle {
+        font-size: 12px;
+    }
+    .compare-success-box.change {
+        width: 200px;
+        bottom: 227px;
+    }
+    .compare-success-box.change svg {
+        top: 70px;
+    }
+}

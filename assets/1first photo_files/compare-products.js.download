@@ -1,0 +1,589 @@
+!function($) {
+    var compareObj = {
+        string: function(val) {
+            switch (val) {
+                case 'Uporedi':
+                    switch (params.lang) {
+                        case 'sr':
+                            return 'Uporedi';
+                            break;
+                        case 'en':
+                            return 'Compare';
+                            break;
+                        case 'ru':
+                            return 'Сравнить';
+                            break;
+                        case 'mk':
+                            return 'Спореди';
+                            break;
+                        case 'me':
+                            return 'Uporedi';
+                            break;
+                        case 'el':
+                            return 'Σύγκρινε';
+                            break;
+                        case 'ro':
+                            return 'Compară';
+                            break;
+                        case 'bs':
+                            return 'Uporedi';
+                            break;
+                        case 'bg':
+                            return 'Сравни';
+                            break;
+                        case 'hu':
+                            return 'Összehasonlít';
+                            break;
+                        case 'hr':
+                            return 'Usporedi';
+                            break;
+                        case 'po':
+                            return 'Porównaj';
+                            break;
+                        case 'sl':
+                            return 'Primerjaj';
+                            break;
+                        default:
+                            return 'Compare';
+                    }
+                case 'Ukloni':
+                    switch (params.lang) {
+                        case 'sr':
+                            return 'Ukloni';
+                            break;
+                        case 'en':
+                            return 'Remove';
+                            break;
+                        case 'ru':
+                            return 'Удалить';
+                            break;
+                        case 'mk':
+                            return 'Отстрани';
+                            break;
+                        case 'me':
+                            return 'Ukloni';
+                            break;
+                        case 'el':
+                            return 'Αφαίρεσε';
+                            break;
+                        case 'ro':
+                            return 'Sterge';
+                            break;
+                        case 'bs':
+                            return 'Ukloni';
+                            break;
+                        case 'bg':
+                            return 'Премахване';
+                            break;
+                        case 'hu':
+                            return 'Töröl';
+                            break;
+                        case 'hr':
+                            return 'Ukloni';
+                            break;
+                        case 'po':
+                            return 'Usuń';
+                            break;
+                        case 'sl':
+                            return 'Odstrani';
+                            break;
+                        default:
+                            return 'Remove';
+                    }
+                case 'samecat':
+                    switch (params.lang) {
+                        case 'sr':
+                            return 'Možete da poredite samo proizvode<br>iz iste kategorije.';
+                            break;
+                        case 'en':
+                            return 'You can only compare products from the same category.';
+                            break;
+                        case 'ru':
+                            return 'Вы можете сравнивать только товары из одной и той же категории.';
+                            break;
+                        case 'mk':
+                            return 'Може да споредувате самопроизводи од иста категорија.';
+                            break;
+                        case 'me':
+                            return 'Možete da poredite samo proizvode iz iste kategorije.';
+                            break;
+                        case 'el':
+                            return 'Μπορείς να συγκρίνεις μόνο προϊόντα της ίδιας κατηγορίας';
+                            break;
+                        case 'ro':
+                            return 'Puteți compara doar produse din aceeași categorie';
+                            break;
+                        case 'bs':
+                            return 'Možete da poredite samo proizvode iz iste kategorije';
+                            break;
+                        case 'bg':
+                            return 'Може да сравнявате продукти само от една категория.';
+                            break;
+                        case 'hu':
+                            return 'Csak azonos kategóriájú termékek hasonlíthatók össze';
+                            break;
+                        case 'hr':
+                            return 'Možete usporediti samo proizvode iz iste kategorije.';
+                            break;
+                        case 'po':
+                            return 'Możesz porównać tylko produkty z tej samej kategorii.';
+                            break;
+                        case 'sl':
+                            return 'Primerjate lahko le izdelke iz iste kategorije.';
+                            break;
+                        default:
+                            return 'You can only compare products from the same category.';
+                    }
+                case 'continue':
+                    switch (params.lang) {
+                        case 'sr':
+                            return 'Nastavi i zameni';
+                            break;
+                        case 'en':
+                            return 'Continue and replace';
+                            break;
+                        case 'ru':
+                            return 'Продолжить и заменить';
+                            break;
+                        case 'mk':
+                            return 'Продолжете и заменете';
+                            break;
+                        case 'me':
+                            return 'Nastavi i zamijeni';
+                            break;
+                        case 'el':
+                            return 'Συνέχισε στην αντικατάσταση';
+                            break;
+                        case 'ro':
+                            return 'Continuați și înlocuiți';
+                            break;
+                        case 'bs':
+                            return 'Nastavi i zamijeni';
+                            break;
+                        case 'bg':
+                            return 'Продължи и замени';
+                            break;
+                        case 'hu':
+                            return 'Folytatás és csere';
+                            break;
+                        case 'hr':
+                            return 'Nastavite i zamijenite';
+                            break;
+                        case 'po':
+                            return 'Kontynuuj i zmień';
+                            break;
+                        case 'sl':
+                            return 'Nadaljujte in zamenjajte';
+                            break;
+                        default:
+                            return 'Continue and replace';
+                    }
+                case 'cancel':
+                    switch (params.lang) {
+                        case 'sr':
+                            return 'Odustani';
+                            break;
+                        case 'en':
+                            return 'Cancel';
+                            break;
+                        case 'ru':
+                            return 'Отмена';
+                            break;
+                        case 'mk':
+                            return 'Откажи';
+                            break;
+                        case 'me':
+                            return 'Odustani';
+                            break;
+                        case 'el':
+                            return 'Ακύρωση';
+                            break;
+                        case 'ro':
+                            return 'Anulare';
+                            break;
+                        case 'bs':
+                            return 'Odustani';
+                            break;
+                        case 'bg':
+                            return 'Отмяна';
+                            break;
+                        case 'hu':
+                            return 'Mégsem';
+                            break;
+                        case 'hr':
+                            return 'Odustani';
+                            break;
+                        case 'po':
+                            return 'Anuluj';
+                            break;
+                        case 'sl':
+                            return 'Prekliči';
+                            break;
+                        default:
+                            return 'Cancel';
+                    }
+                case 'Success':
+                    switch (params.lang) {
+                        case 'sr':
+                            return 'Uspešno ste dodali proizvod za poređenje.';
+                            break;
+                        case 'en':
+                            return 'You have successfully added a product for comparison.';
+                            break;
+                        case 'ru':
+                            return 'Вы успешно добавили продукт для сравнения.';
+                            break;
+                        case 'mk':
+                            return 'Успешно додадовте производ за споредба.';
+                            break;
+                        case 'me':
+                            return 'Uspješno ste dodali proizvod za poređenje.';
+                            break;
+                        case 'el':
+                            return 'Επιτυχής πρόσθεση προϊόντος προς σύγκριση';
+                            break;
+                        case 'ro':
+                            return 'Ați adăugat cu succes un produs pentru comparare';
+                            break;
+                        case 'bs':
+                            return 'Uspješno ste dodali proizvod za poređenje';
+                            break;
+                        case 'bg':
+                            return 'Успешно прибавихте продукт за сравнение';
+                            break;
+                        case 'hu':
+                            return 'Sikeresen hozzáadott egy terméket az összehasonlításhoz';
+                            break;
+                        case 'hr':
+                            return 'Uspješno ste dodali proizvod za usporedbu.';
+                            break;
+                        case 'po':
+                            return 'Pomyślnie dodano produkt do porównania.';
+                            break;
+                        case 'sl':
+                            return 'Uspešno ste dodali izdelek v   primerjavo.';
+                            break;
+                        default:
+                            return 'You have successfully added a product for comparison.';
+                    }
+                case 'Max':
+                    switch (params.lang) {
+                        case 'sr':
+                            return 'Dostigli ste maksimalan broj proizvoda (4).';
+                            break;
+                        case 'en':
+                            return 'You’ve reached the maximum number of products (4).';
+                            break;
+                        case 'ru':
+                            return 'Вы достигли максимального количества продуктов (4).';
+                            break;
+                        case 'mk':
+                            return 'Го достигнавте максималниот број производи (4).';
+                            break;
+                        case 'me':
+                            return 'Dostigli ste maksimalan broj proizvoda (4).';
+                            break;
+                        case 'el':
+                            return 'Έχεις φτάσει στο μέγιστο αριθμό προϊόντων (4).';
+                            break;
+                        case 'ro':
+                            return 'Ați atins numărul maxim de produse (4).';
+                            break;
+                        case 'bs':
+                            return 'Dostigli ste maksimalan broj proizvoda (4).';
+                            break;
+                        case 'bg':
+                            return 'Достигнахте максималния брой продукти (4) .';
+                            break;
+                        case 'hu':
+                            return 'Elérte a maximális (4) termék limitet.';
+                            break;
+                        case 'hr':
+                            return 'Dosegli ste maksimalan broj proizvoda (4).';
+                            break;
+                        case 'po':
+                            return 'Osiągnięto maksymalną liczbę produktów (4).';
+                            break;
+                        case 'sl':
+                            return 'Dosegli ste najvišje število dovoljenih izdelkov (4).';
+                            break;
+                        default:
+                            return 'You’ve reached the maximum number of products (4).';
+                    }
+            }
+
+
+        },
+        setToStorage: function(id, posttype) {
+            if (localStorage.getItem('compareItems' + params.lang) === null) {
+                localStorage.setItem('compareItems' + params.lang, JSON.stringify({
+                    'ids': [id],
+                    'posttype': posttype,
+                    'lang': params.lang,
+                }));
+            } else {
+                var compareItems = JSON.parse(localStorage.getItem('compareItems' + params.lang));
+                compareItems['ids'].push(id);
+                localStorage.setItem('compareItems' + params.lang, JSON.stringify(compareItems));
+            }
+        },
+        addCounterBox: function(number = 1) {
+            if (!$('.comparebox').length) {
+                $('body').append('<div class="comparebox"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.55 25"><g id="Layer_2" data-name="Layer 2">\n' +
+                        '                                            <g id="Layer_1-2" data-name="Layer 1">\n' +
+                        '                                                <path d="M22.3,18.87l-3.66-4.49a.5.5,0,1,0-.77.63l3.35,4.12a.4.4,0,0,0-.15,0H1.6a.5.5,0,1,0,0,1H21.07a.8.8,0,0,0,.15,0l-3.35,4.11a.51.51,0,0,0,.07.71.52.52,0,0,0,.32.11.48.48,0,0,0,.38-.18l3.66-4.49A1.2,1.2,0,0,0,22.3,18.87Z" fill="#0c0c0d"></path>\n' +
+                        '                                                <path d="M4.29,10.8a.5.5,0,0,0,.32-.11.5.5,0,0,0,.07-.7L1.35,5.9H20.94a.5.5,0,0,0,.51-.5.51.51,0,0,0-.51-.5H1.35L4.68.82A.52.52,0,0,0,4.61.11.52.52,0,0,0,3.9.18L.25,4.67a1.22,1.22,0,0,0,0,1.47L3.9,10.62A.51.51,0,0,0,4.29,10.8Z" fill="#0c0c0d"></path>\n' +
+                        '                                            </g>\n' +
+                        '                                        </g>\n' +
+                        '                                    </svg><span>' + number + '</span><p>' + compareObj.string('Uporedi') + '</p></div>');
+            }
+        },
+        removeLocalStorage: function() {
+            localStorage.removeItem('compareItems' + params.lang);
+        },
+        handleCounterBox: function(operation) {
+            var compareItems = this.getCompareItems();
+
+            if ($('.comparebox span').length && compareItems != undefined) {
+                var numberValue = parseInt($('.comparebox span').text());
+                var item = -1;
+                if (operation == 'add') {
+                    item = 1;
+                }
+                $('.comparebox span').empty().text(numberValue + item);
+                if (numberValue + item <= 0) {
+                    $('.comparebox').remove();
+                    this.removeLocalStorage();
+                }
+            } else {
+                this.addCounterBox();
+            }
+        },
+        showDifferences: function() {
+
+            function sameArrayF(arr) {
+                var x = arr[0];
+                return arr.every(function(item) {
+                    return item === x;
+                });
+            }
+
+
+            $(document).on('click', '.switch:not(.disabled) .slider', function() {
+                $(this).parent().toggleClass('active');
+                if ($(this).parent().hasClass('active')) {
+                    $.each($('.spec-1 .spec-table-row .spec-table-right'), function(index, item) {
+                        var sameArray = [];
+                        sameArray.push($.trim($(item).text()));
+                        sameArray.push($.trim($('.spec-2 .spec-table-row .spec-table-right').eq(index).text()));
+                        if ($('.spec-3').length) {
+                            sameArray.push($.trim($('.spec-3 .spec-table-row .spec-table-right').eq(index).text()));
+                        }
+                        if ($('.spec-4').length) {
+                            sameArray.push($.trim($('.spec-4 .spec-table-row .spec-table-right').eq(index).text()));
+                        }
+                        if (sameArrayF(sameArray)) {
+                            $(item).parent().addClass('disable');
+                            $('.spec-2 .spec-table-row .spec-table-right').eq(index).parent().addClass('disable');
+                            $('.spec-3 .spec-table-row .spec-table-right').eq(index).parent().addClass('disable');
+                            $('.spec-4 .spec-table-row .spec-table-right').eq(index).parent().addClass('disable');
+                        }
+                    });
+                } else {
+                    $('.spec-table-row').removeClass('disable');
+                }
+            });
+        },
+        loadEvents: function() {
+            var compareItems = this.getCompareItems();
+
+            if (compareItems == undefined) {
+                return;
+            }
+            if (compareItems['ids'].length) {
+                this.addCounterBox(compareItems['ids'].length);
+                this.handleProductPage(compareItems['ids']);
+            }
+
+            var counter = $('.specs').eq(0).find('.spec-table-row').length;
+            var temp = 0;
+            for (var i = 0; i < counter; i++) {
+                temp = 0;
+                $('.specs').each(function(index, item) {
+
+                    if (temp < $(item).find('.spec-table-row').eq(i).height()) {
+                        temp = $(item).find('.spec-table-row').eq(i).height();
+                    }
+
+                    $(item).find('.spec-table-row').eq(i).height(temp);
+
+                });
+            }
+
+        },
+
+        getCompareItems: function() {
+            return JSON.parse(localStorage.getItem('compareItems' + params.lang));
+        },
+
+        handleProductPage: function(ids) {
+            if (ids.indexOf($('.compare-item').data('id')) >= 0) {
+                this.handleAddRemoveButton('add');
+            }
+        },
+        handleAddRemoveButton: function(status) {
+            if (status == 'add') {
+                $('.compare-item').empty().append('<a class="d-flex align-items-center" href=""><svg width="20" style="margin-right: 10px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 14.2 14.2" xml:space="preserve">\n' +
+                        '<path style="fill:#0C0C0D;" d="M8.5,7.1l5.4-5.4c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0L7.1,5.7L1.7,0.3c-0.4-0.4-1-0.4-1.4,0\n' +
+                        '\ts-0.4,1,0,1.4l5.4,5.4l-5.4,5.4c-0.4,0.4-0.4,1,0,1.4c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3l5.4-5.4l5.4,5.4\n' +
+                        '\tc0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3c0.4-0.4,0.4-1,0-1.4L8.5,7.1z"></path>\n' +
+                        '</svg> ' + compareObj.string('Ukloni') + '</a>');
+            } else {
+                $('.compare-item').empty().append('<a class="d-flex align-items-center" href="">\n' +
+                        '                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.55 25"><g id="Layer_2" data-name="Layer 2">\n' +
+                        '                                            <g id="Layer_1-2" data-name="Layer 1">\n' +
+                        '                                                <path d="M22.3,18.87l-3.66-4.49a.5.5,0,1,0-.77.63l3.35,4.12a.4.4,0,0,0-.15,0H1.6a.5.5,0,1,0,0,1H21.07a.8.8,0,0,0,.15,0l-3.35,4.11a.51.51,0,0,0,.07.71.52.52,0,0,0,.32.11.48.48,0,0,0,.38-.18l3.66-4.49A1.2,1.2,0,0,0,22.3,18.87Z" fill="#0c0c0d"></path>\n' +
+                        '                                                <path d="M4.29,10.8a.5.5,0,0,0,.32-.11.5.5,0,0,0,.07-.7L1.35,5.9H20.94a.5.5,0,0,0,.51-.5.51.51,0,0,0-.51-.5H1.35L4.68.82A.52.52,0,0,0,4.61.11.52.52,0,0,0,3.9.18L.25,4.67a1.22,1.22,0,0,0,0,1.47L3.9,10.62A.51.51,0,0,0,4.29,10.8Z" fill="#0c0c0d"></path>\n' +
+                        '                                            </g>\n' +
+                        '                                        </g>\n' +
+                        '                                    </svg> ' + compareObj.string('Uporedi') + '</a>');
+            }
+        },
+        handleSuccessAddedBox: function() {
+            if (!$('.compare-success-box').length) {
+                $('body').append('<div class="compare-success-box"><p>' + compareObj.string('Success') + '</p><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n' +
+                        '\t viewBox="0 0 11 22" style="enable-background:new 0 0 11 22;" xml:space="preserve">\n' +
+                        '<polygon style="fill:#7DCFF1;" points="0,0 0,22 11,11 "/>\n' +
+                        '</svg>\n</div>');
+            }
+            setTimeout(function() {
+                $('.compare-success-box').fadeOut();
+            }, 2000);
+        },
+        maxProductsForCompare: function() {
+            if ($('.compare-success-box').length) {
+                $('.compare-success-box').remove();
+            }
+            $('body').append('<div class="compare-success-box"><p>' + compareObj.string('Max') + '</p><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n' +
+                    '\t viewBox="0 0 11 22" style="enable-background:new 0 0 11 22;" xml:space="preserve">\n' +
+                    '<polygon style="fill:#7DCFF1;" points="0,0 0,22 11,11 "/>\n' +
+                    '</svg>\n</div>');
+            setTimeout(function() {
+                $('.compare-success-box').fadeOut();
+            }, 2000);
+        },
+        addItem: function(id, posttype) {
+            this.handleCounterBox('add');
+            this.handleSuccessAddedBox('add');
+            this.setToStorage(id, posttype);
+            this.handleAddRemoveButton('add');
+        },
+
+        removeItem: function(id) {
+            var compareItems = JSON.parse(localStorage.getItem('compareItems' + params.lang));
+            var index = compareItems['ids'].indexOf(id);
+            if (index !== -1) {
+                compareItems['ids'].splice(index, 1);
+            }
+            localStorage.setItem('compareItems' + params.lang, JSON.stringify(compareItems));
+            this.handleCounterBox('remove');
+            this.handleAddRemoveButton('remove');
+        },
+        clickEvents: function() {
+            $(document).on('click', '.comparebox', function(e) {
+                e.preventDefault();
+                var compareItems = JSON.parse(localStorage.getItem('compareItems' + params.lang));
+                window.location.href = params.siteurl + '/' + params.lang + '/compare?ids=' + compareItems['ids'];
+            });
+
+
+            $(document).on('click', '.remove-compare-item', function() {
+
+                var productID = $(this).data('id');
+                var posttype = $(this).data('posttype');
+
+                compareObj.removeItem(productID);
+
+                var compareItems = compareObj.getCompareItems();
+                if (compareItems != null) {
+                    window.location.href = params.siteurl + '/' + params.lang + '/compare?ids=' + compareItems['ids'];
+                } else {
+                    window.location.href = params.siteurl + '/' + params.lang + '/compare';
+                }
+            });
+
+            $(document).on('click', '.compare-item', function(e) {
+                e.preventDefault();
+                var productID = $(this).data('id');
+                var posttype = $(this).data('posttype');
+                var compareItems = compareObj.getCompareItems();
+
+                if (compareItems == undefined) {
+                    compareObj.addItem(productID, posttype);
+                    return;
+                }
+
+                if (compareItems['ids'].indexOf(productID) >= 0) {
+                    compareObj.removeItem(productID);
+                    return;
+                }
+                if (compareItems['ids'].length >= 4) {
+                    compareObj.maxProductsForCompare();
+                    return;
+                }
+
+                if (compareItems['posttype'] != posttype) {
+                    compareObj.popupDifferentProductHandle({
+                        'posttype': posttype,
+                        'id': productID,
+                    });
+                    return;
+                }
+                compareObj.addItem(productID, posttype);
+            });
+
+            $(document).on('click', '.change-category', function(e) {
+                e.preventDefault();
+
+                compareObj.removeLocalStorage();
+
+                var productID = $(this).data('id');
+                var posttype = $(this).data('posttype');
+                $('.compare-success-box.change').remove();
+                $('.comparebox span').empty().text(1);
+                compareObj.addItem(productID, posttype);
+
+
+            });
+            $(document).on('click', '.change-cancle', function(e) {
+                e.preventDefault();
+                $('.compare-success-box.change').remove();
+            });
+
+
+        },
+        popupDifferentProductHandle: function(data) {
+
+            if (!$('.compare-success-box').length) {
+                $('body').append('<div class="compare-success-box change d-block"><p style="max-width: 100%">' + compareObj.string('samecat') + '</p><div class="text-center"><a data-posttype="' + data.posttype + '" data-id="' + data.id + '" class="change-category" href="#">' + compareObj.string('continue') + '</a><a class="change-cancle" href="#">' + compareObj.string('cancel') + '</a></div><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n' +
+                        '\t viewBox="0 0 11 22" style="enable-background:new 0 0 11 22;" xml:space="preserve">\n' +
+                        '<polygon style="fill:#7DCFF1;" points="0,0 0,22 11,11 "/>\n' +
+                        '</svg>\n</div>');
+
+                // setTimeout(function () {
+                //     $('.compare-success-box').fadeOut().remove();
+                // }, 5000)
+
+            }
+
+
+        },
+        init: function() {
+
+            this.loadEvents();
+            this.clickEvents();
+            this.showDifferences();
+        },
+    };
+    compareObj.init();
+}(jQuery);

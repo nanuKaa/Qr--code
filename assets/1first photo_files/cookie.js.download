@@ -1,0 +1,359 @@
+var lang = params.lang;
+
+!function($) {
+  var teslaCookie = {
+    defalutConfig: {
+      ga: false,
+      line: true,
+      other: false,
+      fb: false,
+      rl: false,
+    },
+    cookieBanner: function() {
+      switch (lang) {
+        case 'en':
+          return '<div class="cookie-info-banner"><p>Welcome to Tesla.info! This notification is just like our built-in kitchen appliances – quite important, but doesn’t take up a lot of space. In order to monitor website use, personalize ads, social media and other marketing posts, we need your consent to use cookies – data saved in the browser. By selecting “Accept all cookies” you accept all cookies, while “More information” takes you to a detailed explanation where you can choose which cookies you want to accept or decline: for those coming out of Tesla ovens, the decision is probably a no-brainer. Thank you!</p><div class="buttonss"><button id="accept-all-cookies">Accept all cookies</button><a href="https://tesla.info/en/cookie-policy/">More information</a></div></div>';
+          break;
+ case 'nl':
+          return '<div class="cookie-info-banner"><p>Welkom op Tesla.info! Deze melding is zoals onze ingebouwde keukenapparaten – vrij belangrijk -, maar neemt niet veel plaats in. Om het websitegebruik te monitoren, advertenties, social media en andere marketingberichten te personaliseren, hebben we uw toestemming nodig om cookies te gebruiken – gegevens die bewaard worden in de browser. Door “Accepteer alle cookies” te selecteren, aanvaardt u alle cookies, terwijl “Meer informatie” u naar gedetailleerde uitleg brengt waar u kunt kiezen welke cookies u wilt accepteren of weigeren: voor degene die uit Tesla-ovens komen, is de beslissing waarschijnlijk een makkie. Bedankt!</p><div class="buttonss"><button id="accept-all-cookies">Accepteer alle cookies</button><a href="https://tesla.info/nl/cookie-policy/">Meer informatie</a></div></div>';
+          break;
+
+          
+        case 'sr':
+          return '<div class="cookie-info-banner"><p>Dobro došli na Tesla.info! Ovo obaveštenje je poput naših ugradnih kuhinjskih aparata – ne zauzima puno prostora, a veoma je važno. Kako bismo pratili posete sajta, personalizovali reklame, objave na društvenim mrežama i druge marketinške objave, neophodna nam je Vaša saglasnost za korišćenje kolačića (cookies) podataka sačuvanih u pretraživaču. Klikom na „Prihvati sve kolačiće“ prihvatate sve kolačiće, a klikom na „Više informacija“ otvarate detaljnije objašnjenje i možete sami da podesite koje kolačiće ćete prihvatiti a koje odbiti: za one iz Tesla rerni, sigurni smo da nema dileme. Hvala!</p><div class="buttonss"><button id="accept-all-cookies">Prihvati sve kolačiće</button><a href="https://tesla.info/sr/politika-kolacica/">Više informacija</a></div></div>';
+          break;
+        case 'it':
+          return '<div class="cookie-info-banner"><p>Benvenuto su Tesla.info! Questo avviso è come i nostri elettrodomestici da incasso: non occupa tanto spazio, però è molto importante. Per tracciare le visite al sito, personalizzare pubblicità, post sui social network e altri post di marketing, abbiamo bisogno del tuo consenso per utilizzare i cookie memorizzati nel browser. Cliccando su “Accetta tutti i cookie" accetti tutti i cookie, e cliccando su "Maggiori informazioni" apri una spiegazione più dettagliata e puoi impostare quali cookie accettare e quali rifiutare: per quelli del Forni Tesla, siamo sicuri che non ci sia alcun dilemma. Grazie!</p><div class="buttonss"><button id="accept-all-cookies"> Accetta tutti i cookie</button><a href="https://tesla.info/it/politica-dei-cookies/">Maggiori informazioni</a></div></div>';
+          break;
+        case 'hr':
+          return '<div class="cookie-info-banner"><p>Dobrodošli na Tesla.info! Ova je obavijest poput naših ugrađenih kuhinjskih uređaja - ne zauzima puno prostora, a vrlo je važna. Da bismo pratili posjete web stranicama, personalizirali oglase, objave na društvenim mrežama i druge marketinške objave, potreban nam je Vaš pristanak za upotrebu kolačića (cookies) pohranjenih u pregledniku. Klikom na "Prihvati sve kolačiće" prihvaćate sve kolačiće, a klikom na "Više informacija" otvarate detaljnije objašnjenje i možete postaviti koje ćete kolačiće prihvatiti, a koje odbiti: za one iz Tesla pećnice sigurni smo da nema dvojbe. Hvala!</p><div class="buttonss"><button id="accept-all-cookies">Prihvati sve kolačiće</button><a href="https://tesla.info/hr/politika-kolacica/">Više informacija</a></div></div>';
+          break;
+        case 'bs':
+          return '<div class="cookie-info-banner"><p>Dobro došli na Tesla.info! Ovo obavještenje je poput naših ugradbenih kuhinjskih aparata – ne zauzima puno prostora, a veoma je važno. Kako bismo pratili posjete sajta, personalizovali reklame, objave na društvenim mrežama i druge marketinške objave, neophodna nam je Vaša saglasnost za korištenje kolačića (cookies) podataka sačuvanih u pretraživaču. Klikom na „Prihvati sve kolačiće“ prihvatate sve kolačiće, a klikom na „Više informacija“ otvarate detaljnije objašnjenje i možete sami da podesite koje kolačiće ćete prihvatiti a koje odbiti: za one iz Tesla rerne, sigurni smo da nema dileme. Hvala!</p><div class="buttonss"><button id="accept-all-cookies">Prihvati sve kolačiće</button><a href="https://tesla.info/bs/politika-kolacica/">Više informacija</a></div></div>';
+          break;
+        case 'sl':
+          return '<div class="cookie-info-banner"><p>Dobrodošli na Tesla.info! To obvestilo je kot naši kuhinjski aparati – ne zasede veliko prostora, ampak je zelo važno. Za sledenje obiskov spletne strani, za oblikovanje personaliziranih oglasov, objave na družabnih omrežjih in druge marketinške objave potrebujemo vaše soglasje za uporabo piškotkov (cookies), ki so shranjeni v vašem brskalniku. S klikom na »Sprejmi vse piškotke« boste sprejeli vse piškotke, s klikom na »Več informacij« boste odprli podrobnejšo razlago in boste lahko sami izbirali katere piškotke sprejemate in katere ne – za tiste iz Tesla pečice smo prepričani da ni dileme. Hvala!</p><div class="buttonss"><button id="accept-all-cookies">Sprejmi vse piškotke </button><a href="https://tesla.info/sl/pravilnik-o-piskotkih/">Več informacij</a></div></div>';
+          break;
+        case 'mk':
+          return '<div class="cookie-info-banner"><p>Добредојдовте на Тесла.инфо! Ова известување е како нашите вградени кујнски апарати - не зазема многу простор и е многу важно. За да ги следиме посетите на страниците, да ги персонализираме рекламите, објавите на социјалните мрежи и другите објави за маркетинг, потребна ни е ваша согласност да користиме колачиња зачувани во прелистувачот. Со кликнување на „Прифати ги сите колачиња“ ги прифаќаш сите колачиња и со кликнување на „Повеќе информации“ отвораш подетално објаснување и може да поставиш кои колачиња ќе ги прифатиш, а кои ќе ги одбиеш: за оние од рерната Тесла, сигурни сме дека нема дилема.Ви благодариме</p><div class="buttonss"><button id="accept-all-cookies">Прифати ги сите колачиња</button><a href="https://tesla.info/mk/politika-na-kolacinja/">Повеќе информации</a></div></div>';
+          break;
+        case 'ro':
+          return '<div class="cookie-info-banner"><p>Bine ați venit la Tesla.info! Această notificare este la fel ca aparatele noastre de bucătărie încorporate - destul de importante, dar nu ocupă mult spațiu. Pentru a monitoriza utilizarea site-ului web, a personaliza anunțurile, rețelele de socializare și alte postări de marketing, avem nevoie de consimțământul dvs. pentru a utiliza cookie-uri - date salvate în browser. Selectând „ Acceptă toate cookie-urile” acceptați toate cookie-urile, în timp ce „Mai multe informații” vă duce la o explicație detaliată unde puteți alege ce cookie doriți să acceptați sau să refuzați: pentru iese din cuptoarele Tesla, decizia este probabil o nebunie. Mulțumim!</p><div class="buttonss"><button id="accept-all-cookies">Acceptă toate cookie-urile</button><a href="https://tesla.info/ro/politica-cookie/">Mai multe informații</a></div></div>';
+          break;
+        case 'bg':
+          return '<div class="cookie-info-banner"><p>Добре дошли в Tesla.info! За да наблюдаваме използването на уебсайта, да персонализираме реклами, социални медии и други маркетингови публикации, ни е необходимо вашето съгласие за използване на “cookies” - данни, записани в браузъра. Избирайки „Приемам всички cookies“, вие приемате всички “cookies”, докато „Повече информация“ ви отвежда до подробно обяснение, където можете да изберете кои “cookies”  искате да приемете или откажете. Благодаря ти!</p><div class="buttonss"><button id="accept-all-cookies">Приемам всички cookies</button><a href="https://tesla.info/bg/politika-za-cookies/">Повече информация</a></div></div>';
+          break;
+        case 'hu':
+          return '<div class="cookie-info-banner"><p>Üdvözöljük a Tesla.info oldalon! A weboldal használatának figyelemmel kísérése, a hirdetések, a közösségi média és más marketing bejegyzések személyre szabása érdekében a sütik (cookie-k) – a böngészőbe mentett adatok - használatához a beleegyezésére van szükségünk. Az „Elfogadom az összes sütit” kiválasztásával elfogadja az összes sütit, míg a „További információk” választása egy részletes leíráshoz vezet, ahol kiválaszthatja, hogy mely sütiket fogadja el vagy utasítja el. Köszönjük!</p><div class="buttonss"><button id="accept-all-cookies">Elfogadom az összes sütit</button><a href="https://tesla.info/hu/suti-iranyelvek/">További információk</a></div></div>';
+          break;
+        case 'el':
+          return '<div class="cookie-info-banner"><p>Καλώς ήλθατε στο Tesla.info! Για την καλύτερη περιήγηση και εμπειρία σου στο site μας, χρειαζόμαστε τη συγκατάθεσή σου για τη χρήση Cookies. Με τον τρόπο αυτό μπορούμε να παρακολουθήσουμε τη χρήση της ιστοσελίδας για τη βελτίωση της περιήγησης, της επίδοσης και λειτουργικότητας της, να εξατομικεύσουμε διαφημίσεις καθώς και άλλες δημοσιεύσεις μάρκετινγκ. Επιλέγοντας "Αποδοχή όλων των cookies" αποδέχεσαι όλα τα cookies, ενώ η επιλογή "Περισσότερες πληροφορίες" σε μεταφέρει σε μια σελίδα με λεπτομερή επεξήγηση των cookies όπου μπορείς να επιλέξεις ποια θέλεις να αποδεχτείς ή να απορρίψεις. Ευχαριστώ!</p><div class="buttonss"><button id="accept-all-cookies">Αποδοχή όλων των cookies</button><a href="https://tesla.info/el/cookie-policy/">Περισσότερες πληροφορίες</a></div></div>';
+          break;
+        case 'me':
+          return '<div class="cookie-info-banner"><p>Dobro došli na Tesla.info! Ovo obaveštenje je poput naših ugradnih kuhinjskih aparata – ne zauzima puno prostora, a veoma je važno. Kako bismo pratili posete sajta, personalizovali reklame, objave na društvenim mrežama i druge marketinške objave, neophodna nam je Vaša saglasnost za korišćenje kolačića (cookies) podataka sačuvanih u pretraživaču. Klikom na „Prihvati sve kolačiće“ prihvatate sve kolačiće, a klikom na „Više informacija“ otvarate detaljnije objašnjenje i možete sami da podesite koje kolačiće ćete prihvatiti a koje odbiti: za one iz Tesla rerni, sigurni smo da nema dileme. Hvala!</p><div class="buttonss"><button id="accept-all-cookies">Prihvati sve kolačiće</button><a href="https://tesla.info/me/cookie-policy/">Više informacija</a></div></div>';
+          break;
+        default:
+          return '<div class="cookie-info-banner"><p>Welcome to Tesla.info! This notification is just like our built-in kitchen appliances – quite important, but doesn’t take up a lot of space. In order to monitor website use, personalize ads, social media and other marketing posts, we need your consent to use cookies – data saved in the browser. By selecting “Accept all cookies” you accept all cookies, while “More information” takes you to a detailed explanation where you can choose which cookies you want to accept or decline: for those coming out of Tesla ovens, the decision is probably a no-brainer. Thank you!</p><div class="buttonss"><button id="accept-all-cookies">Accept all cookies</button><a href="https://tesla.info/el/cookie-policy/">More information</a></div></div>';
+          break;
+      }
+
+    },
+    domain: '.tesla.info',
+    UA_CODE: 'G-L9Z025C1BV',
+    googleCookiesToRemove: ['_ga', '_ga_L9Z025C1BV', '_gid'],
+    facebookPixelToRemove: ['fb', '_fbp'],
+    hotjarCookiesToRemove: [
+      '_hjFirstSeen',
+      '_hjAbsoluteSessionInProgress',
+      '_hjid',
+      '_hjIncludedInPageviewSample',
+    ],
+    doubleClick: '<script type="text/javascript">\n' +
+        '  /* <![CDATA[ */\n' +
+        '  var google_conversion_id = 937411092;\n' +
+        '  var google_custom_params = window.google_tag_params;\n' +
+        '  var google_remarketing_only = true;\n' +
+        '  /* ]]> */\n' +
+        '</script>\n' +
+        '<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">\n' +
+        '</script>\n' +
+        '<noscript>\n' +
+        '    <div style="display:inline;">\n' +
+        '        <img height="1" width="1" style="border-style:none;" alt=""\n' +
+        '             src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/937411092/?guid=ON&amp;script=0"/>\n' +
+        '    </div>\n' +
+        '</noscript>',
+    googleTagManager: '<!-- Google Tag Manager (noscript) -->\n' +
+        '<noscript>\n' +
+        '    <iframe src="https://www.googletagmanager.com/ns.html?id=G-L9Z025C1BV"\n' +
+        '            height="0" width="0" style="display:none;visibility:hidden"></iframe>\n' +
+        '</noscript>\n' +
+        '<!-- End Google Tag Manager (noscript) -->',
+    googleAnalitycs: '<!-- Global site tag (gtag.js) - Google Analytics -->\n' +
+        '<script async src="https://www.googletagmanager.com/gtag/js?id=G-L9Z025C1BV"></script>\n' +
+        '<script>\n' +
+        'window.dataLayer = window.dataLayer || [];\n' +
+        'function gtag(){dataLayer.push(arguments);}\n' +
+        'gtag(\'js\', new Date());\n' +
+        '\n' +
+        'gtag(\'config\', \'G-L9Z025C1BV\');\n' +
+        '</script>',
+    hotjarScript: '',
+    facebookPixel: '<!-- Facebook Pixel Code -->\n' +
+        '    <script>\n' +
+        '      !function(f, b, e, v, n, t, s) {\n' +
+        '        if (f.fbq) return;\n' +
+        '        n = f.fbq = function() {\n' +
+        '          n.callMethod ?\n' +
+        '              n.callMethod.apply(n, arguments) : n.queue.push(arguments);\n' +
+        '        };\n' +
+        '        if (!f._fbq) f._fbq = n;\n' +
+        '        n.push = n;\n' +
+        '        n.loaded = !0;\n' +
+        '        n.version = \'2.0\';\n' +
+        '        n.queue = [];\n' +
+        '        t = b.createElement(e);\n' +
+        '        t.async = !0;\n' +
+        '        t.src = v;\n' +
+        '        s = b.getElementsByTagName(e)[0];\n' +
+        '        s.parentNode.insertBefore(t, s);\n' +
+        '      }(window, document, \'script\',\n' +
+        '          \'https://connect.facebook.net/en_US/fbevents.js\');\n' +
+        '      fbq(\'init\', \'985784234896226\');\n' +
+        '      fbq(\'track\', \'PageView\');\n' +
+        '    </script>\n' +
+        '    <noscript><img height="1" width="1" style="display:none"\n' +
+        '                   src="https://www.facebook.com/tr?id=985784234896226&ev=PageView&noscript=1"\n' +
+        '        /></noscript>\n' +
+        '    <!-- End Facebook Pixel Code -->',
+    createCookie: function(name, value, days) {
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        var expires = '; expires=' + date.toGMTString();
+      } else {
+        var expires = '';
+      }
+      document.cookie = escape(name) + '=' + value + expires +
+          '; domain=' + teslaCookie.domain + ';path=/';
+    },
+    readCookie: function(name) {
+      var nameEQ = escape(name) + '=';
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return Boolean(unescape(
+            c.substring(nameEQ.length, c.length)));
+      }
+      return null;
+    },
+    getCookie: function(name) {
+      var value = '; ' + document.cookie;
+      var parts = value.split('; ' + name + '=');
+      if (parts.length == 2)
+        return parts.pop().split(';').shift();
+    },
+    deleteCookie: function(name) {
+      // document.cookie = name +
+      //     '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
+      var path = '/';
+      document.cookie = name + '=' +
+          ((path) ? ';path=' + path : '') +
+          ((teslaCookie.domain) ? ';domain=' + teslaCookie.domain : '') +
+          ';expires=Thu, 01 Jan 1970 00:00:01 GMT';
+
+    },
+    updateCookieValue: function(buttonType, value) {
+      var name = 'Consent';
+      var value;
+      var domain = teslaCookie.domain;
+      var date = new Date();
+      var getCurrentValues = JSON.parse(this.getCookie('Consent'));
+
+      date.setTime(date.getTime() + (7300 * 24 * 60 * 60 * 100));
+      var expires = '; expires=' + date.toGMTString();
+
+      switch (buttonType) {
+        case 'custom':
+          $('.cookie-button').each(function(index, item) {
+            if ($(item).hasClass('active')) {
+              var type = $(item).data('type');
+              var value = $(item).data('value');
+
+              switch (type) {
+                case 'ga':
+                  getCurrentValues.ga = value;
+                  break;
+                case 'line':
+                  getCurrentValues.line = value;
+                  break;
+                case 'other':
+                  getCurrentValues.other = value;
+                  break;
+                case 'fb':
+                  getCurrentValues.fb = value;
+                  break;
+              }
+            }
+          });
+          getCurrentValues.rl = true;
+
+          break;
+        case 'accept':
+          getCurrentValues.fb = true;
+          getCurrentValues.other = true;
+          getCurrentValues.line = false;
+          getCurrentValues.ga = true;
+          getCurrentValues.rl = true;
+          break;
+      }
+      document.cookie = name + '=' + JSON.stringify(getCurrentValues) +
+          expires + ';domain=' + teslaCookie.domain + ';path=/';
+    },
+    removeCookies: function(cookiesToRemove) {
+      for (var i = 0; i < cookiesToRemove.length; i++) {
+        teslaCookie.deleteCookie(cookiesToRemove[i]);
+      }
+    },
+
+    applySettings: function() {
+
+      if (this.readCookie('Consent') === true) {
+        var cookieStatus = JSON.parse(teslaCookie.getCookie('Consent'));
+        var googleAnalytics = cookieStatus.ga;
+        var statusBar = cookieStatus.line;
+        var thirdPart = cookieStatus.other;
+        var facebook = cookieStatus.fb;
+        var rl = cookieStatus.rl;
+
+        if (cookieStatus.ga) {
+          window['ga-disable-' + this.UA_CODE] = false;
+          $('head').append(teslaCookie.googleAnalitycs);
+          $('.cookie-button[data-type="ga"][data-value="true"]').
+              addClass('active');
+        } else {
+          window['ga-disable-' + this.UA_CODE] = true;
+          teslaCookie.removeCookies(this.googleCookiesToRemove);
+          $('.cookie-button[data-type="ga"][data-value="false"]').
+              addClass('active');
+
+        }
+
+        if (cookieStatus.fb) {
+          $('head').append(this.facebookPixel);
+          $('.cookie-button[data-type="fb"][data-value="true"]').
+              addClass('active');
+
+        } else {
+          this.removeCookies(this.facebookPixelToRemove);
+
+          $('.cookie-button[data-type="fb"][data-value="false"]').
+              addClass('active');
+
+        }
+
+        if (cookieStatus.other) {
+          $('body').append(this.doubleClick);
+
+          $('head').append(this.hotjarScript);
+
+          $('body').prepend(this.googleTagManager);
+          $('.cookie-button[data-type="other"][data-value="true"]').
+              addClass('active');
+
+        } else {
+          this.removeCookies(this.hotjarCookiesToRemove);
+          $('.cookie-button[data-type="other"][data-value="false"]').
+              addClass('active');
+
+        }
+        if (cookieStatus.line) {
+          if (!rl) {
+            $('body').append(this.cookieBanner);
+          }
+          if (googleAnalytics == true && thirdPart == true && facebook ==
+              true) {
+            $('.cookie-button[data-type="line"][data-value="true"]').
+                addClass('active');
+          } else {
+            $('.cookie-button[data-type="line"][data-value="false"]').
+                addClass('active');
+          }
+
+        } else {
+          $('.cookie-button[data-type="line"][data-value="true"]').
+              addClass('active');
+
+        }
+      } else {
+        this.createCookie('Consent', JSON.stringify(teslaCookie.defalutConfig),
+            1000);
+        $('body').append(this.cookieBanner);
+      }
+
+    },
+    init: function() {
+      this.clickEvents();
+      this.applySettings();
+    },
+    clickEvents: function() {
+
+      // $(document).
+      //     on('click', '.cookie-button:not([data-type="line"])', function() {
+      //       var dataType = $(this).data('type');
+      //       var param = $(this).data('value');
+      //       teslaCookie.updateCookieValue(dataType, param);
+      //       window.location.reload();
+      //       return;
+      //     });
+      $(document).
+          on('click', '.cookie-button', function() {
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
+
+            return;
+          });
+      $(document).on('click', '#accept-all-cookies', function() {
+        teslaCookie.updateCookieValue('accept', '');
+        $('.cookie-button').removeClass('active');
+        teslaCookie.applySettings();
+        $('.cookie-info-banner').remove();
+        return;
+      });
+
+      $(document).on('click', '.save-settings', function() {
+        teslaCookie.updateCookieValue('custom', '');
+          setTimeout(function() {
+            teslaCookie.applySettings();
+
+          //  window.history.go(-1);
+              $('.cookie-info-banner').remove();
+              window.location.href = params.siteurl + '/' + params.lang + '/';
+
+            return false;
+          }, 1000);
+      });
+
+      // $(document).on('click', '.buttonss a', function() {
+      //   teslaCookie.updateCookieValue('remove-line', '');
+      // });
+
+      // $(document).on('click', '#decline-all-cookies', function() {
+      //   teslaCookie.updateCookieValue('decline', '');
+      //   $('.cookie-button').removeClass('active');
+      //   setTimeout(function() {
+      //     teslaCookie.applySettings();
+      //
+      //   }, 1000);
+      //
+      //   return;
+      // });
+    },
+  };
+
+  teslaCookie.init();
+
+}(jQuery);
+
+

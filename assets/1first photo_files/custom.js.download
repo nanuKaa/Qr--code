@@ -1,0 +1,582 @@
+!function($) {
+    var teslaObject = {
+        whereToBuy: function() {
+
+        },
+        handlenewsletterPopup: function() {
+            $(document).on('click', '#complet-newsletter', function(e) {
+                e.preventDefault();
+                $('#mc-embedded-subscribe').click();
+            });
+            $(document).on('click', '#mc-embedded-subscribe', function(e) {
+
+                if ($('#mce-EMAIL').val() == '') {
+                    e.preventDefault();
+                    return;
+                }
+
+                if (!$(this).hasClass('activePopup')) {
+
+                    e.preventDefault();
+                    $(this).addClass('activePopup');
+                    var html = jQuery('html');
+                    var modalFunction = function(e, modal) {
+                        e.preventDefault();
+                        jQuery(modal).addClass('open');
+                        jQuery(modal).next('.overlay-fullscreen').addClass('open');
+                        if (jQuery(modal).hasClass('open')) {
+                            html.addClass('over-flow');
+                        } else {
+                            html.removeClass('over-flow');
+                        }
+                    };
+
+                    modalFunction(e, '#newsletter-modal');
+                }
+            });
+            $('body').on('DOMSubtreeModified', '#mce-error-response', function() {
+
+                if ($(this).text() == $('#mce-EMAIL').val() +
+                        ' is already subscribed to list Tesla. Click here to update your profile') {
+                    $('#newsletter-modal .modal-custom-content').empty().append(
+                            '<p>' + $('#mce-EMAIL').val() + ' već postoji na listi.</p>');
+                    $(this).html('<p>' + $('#mce-EMAIL').val() + ' već postoji na listi.</p>');
+                }
+            });
+            var target = document.getElementById('mce-success-response');
+            var observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+
+                    if (target.innerHTML === 'Thank you for subscribing!') {
+                        $('#newsletter-modal .modal-custom-content').empty().append('<p>Hvala na prijavi!</p>');
+                        target.innerHTML = 'Hvala na prijavi!';
+                        $('#mc-embedded-subscribe').removeClass('activePopup');
+                    }
+                });
+            });
+            var config = {attributes: true, childList: true, characterData: true};
+            observer.observe(target, config);
+        },
+        zoomScript: function() {
+            var bigimage = $('#big'), thumbs = $('#thumbs');
+            if (bigimage.length) {
+                bigimage.owlCarousel({
+                    items: 1,
+                    slideSpeed: 2000,
+                    dots: false,
+                    loop: true,
+                    responsiveRefreshRate: 200,
+                    navText: [
+                        '<i class="fa fa-arrow-left" aria-hidden="true"></i>',
+                        '<i class="fa fa-arrow-right" aria-hidden="true"></i>',
+                    ],
+                });
+                thumbs.owlCarousel({
+                    items: 5,
+                    dots: false,
+                    nav: true,
+                    navText: [
+                        '<i class="fa fa-chevron-left" aria-hidden="true"></i>',
+                        '<i class="fa fa-chevron-right" aria-hidden="true"></i>',
+                    ],
+                    smartSpeed: 200,
+                    slideSpeed: 500,
+                    slideBy: 5,
+                    responsiveRefreshRate: 100,
+                    responsiveClass: true,
+                    responsive: {
+                        0: {
+                            items: 3,
+                        },
+                        600: {
+                            items: 3,
+                        },
+                        992: {
+                            items: 4,
+                        },
+                    },
+                });
+            }
+            thumbs.on('click', '.owl-item', function(e) {
+                var $this = $(this);
+                $('.owl-item, .item.selected').removeClass('selected');
+                $this.addClass('selected');
+                e.preventDefault();
+                var number = $this.index();
+                bigimage.data('owl.carousel').to(number, 300, true);
+            });
+            if ($('.zoom').length) {
+                $('.zoom').zoom();
+            }
+        },
+        sliders: function() {
+            if ($('#home-slider').length) {
+                $('#home-slider').slick({
+                    dots: true,
+                    infinite: true,
+                    speed: 500,
+                    autoplay: true,
+                    arrows: false,
+                    adaptiveHeight: true,
+                    fade: true,
+                    swipeToSlide: true,
+                    cssEase: 'linear',
+                    customPaging: function(slider, i) {
+                        return '<span></span>';
+                    },
+                });
+            }
+            if ($('.cat-slider').length) {
+                $('.cat-slider').slick({
+                    dots: false,
+                    infinite: true,
+                    speed: 500,
+                    slidesToShow: 7,
+                    arrows: true,
+                    autoplay: false,
+                    slidesToScroll: 1,
+                    prevArrow: '<button type=\'button\' class=\'slick-prev left-arrow pull-left\'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 10"><title>left</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path d="M4.5,10a.48.48,0,0,1-.36-.16L.28,5.73a1.09,1.09,0,0,1,0-1.45L4.14.16a.5.5,0,1,1,.73.68L1,5l3.85,4.2a.5.5,0,0,1,0,.71A.53.53,0,0,1,4.5,10Z" fill="#0c0c0d"/></g></g></svg></button>',
+                    nextArrow: '<button type=\'button\' class=\'slick-next right-arrow pull-right\'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 10"><title>right</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path d="M.5,10a.48.48,0,0,1-.34-.13.51.51,0,0,1,0-.71L4,5,.13.84A.5.5,0,0,1,.87.16L4.72,4.28a1.05,1.05,0,0,1,0,1.44L.87,9.84A.5.5,0,0,1,.5,10Z" fill="#0c0c0d"/></g></g></svg></button>',
+                    responsive: [
+                        {
+                            breakpoint: 1550,
+                            settings: {
+                                slidesToShow: 6,
+                            },
+                        },
+                        {
+                            breakpoint: 1199,
+                            settings: {
+                                slidesToShow: 5,
+                            },
+                        },
+                        {
+                            breakpoint: 992,
+                            settings: {
+                                slidesToShow: 4,
+                            },
+                        },
+                        {
+                            breakpoint: 767,
+                            settings: {
+                                slidesToShow: 3,
+                            },
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                slidesToShow: 2,
+                            },
+                        },
+                    ],
+                });
+            }
+        },
+        animateElements: function() {
+            AOS.init({
+                once: true,
+            });
+        },
+        modal: function() {
+            var html = jQuery('html');
+            var modalFunction = function(e, modal) {
+                e.preventDefault();
+                jQuery(modal).addClass('open');
+                jQuery(modal).next('.overlay-fullscreen').addClass('open');
+                if (jQuery(modal).hasClass('open')) {
+                    html.addClass('over-flow');
+                } else {
+                    html.removeClass('over-flow');
+                }
+            };
+            jQuery('.buy-button').on('click', function(e) {
+                modalFunction(e, '#where-to-buy-modal');
+            });
+            jQuery('.share-button').on('click', function(e) {
+                modalFunction(e, '#share-modal');
+            });
+
+            $(document).on('click', '#reject-newsletter', function(e) {
+                e.preventDefault();
+                window.location.reload();
+            });
+
+            jQuery(document).on('click', '.cancel-fullscreen, .cancel-fullscreen-link',
+                    function() {
+
+                        if ($(this).hasClass('newsletter')) {
+                            window.location.reload();
+                        }
+                        jQuery(
+                                '#where-to-buy-modal, .overlay-fullscreen, #share-modal, #newsletter-modal').removeClass('open');
+                        html.removeClass('over-flow');
+                    });
+
+            jQuery(document).on('click', '.cancel-fullscreen.ajax', function() {
+                jQuery('#where-to-buy-modal, .overlay-fullscreen').remove();
+            });
+
+            jQuery(document).on('click', '.overlay-fullscreen.share.open', function() {
+                jQuery('.overlay-fullscreen, #share-modal').removeClass('open');
+                html.removeClass('over-flow');
+            });
+        },
+        submitCF7forms: function() {
+            document.addEventListener('wpcf7submit', function(event) {
+            }, false);
+        },
+        clickEvents: function() {
+
+            if ($('#scroll-to-top').length) {
+                $(document).on('click', '#scroll-to-top', function(e) {
+                    e.preventDefault();
+                    $('html, body').animate({
+                        scrollTop: $('body').offset().top,
+                    }, 300);
+                });
+            }
+            if ($('#scroll-to-newsletter').length) {
+                $(document).on('click', '#scroll-to-newsletter', function(e) {
+                    e.preventDefault();
+
+                    if ($('.newsletter-section').length) {
+                        $('html, body').animate({
+                            scrollTop: $('.newsletter-section').offset().top - 100,
+                        }, 300);
+                    } else {
+                        window.location.href = params.siteurl + '/' + params.lang +
+                                '/#newsletter-section';
+                    }
+
+                });
+            }
+
+            if ($('.bt-sub-cat').length) {
+                $(document).on('click', '.bt-sub-cat a', function(e) {
+                    if ($(this).attr('href') === '#') {
+                        e.preventDefault();
+                        var cat = $(this).data('catid');
+                        $('html, body').animate({
+                            scrollTop: $('section[data-catid=' + cat + ']').offset().top -
+                                    100,
+                        }, 600);
+                    }
+                });
+            }
+            if ($('#click-to-copy').length) {
+                $(document).on('click', '#click-to-copy', function(e) {
+
+                    e.preventDefault();
+                    var $temp = $('<input>');
+
+                    $('body').append($temp);
+                    $temp.val($('#click-to-copy').data('text')).select();
+                    document.execCommand('copy');
+                    $temp.remove();
+
+                });
+            }
+
+            //open main menu in header
+            $(document).on('click', '.menu-button', function() {
+                var secondMenu, menuType = $(this).data('menu');
+                if (menuType == 'search') {
+                    var secondMenu = 'second-menu';
+                } else {
+                    var secondMenu = 'search';
+                }
+                if ($(this).hasClass('active')) {
+                    $('.popup.' + menuType).hide();
+                } else {
+                    $('.popup.' + menuType).show();
+                }
+                $(this).toggleClass('active');
+                if ($('.menu-button[data-menu="' + menuType + '"]').hasClass('active')) {
+                    $('.popup.' + secondMenu).hide();
+                    $('.menu-button[data-menu="' + secondMenu + '"]').removeClass('active');
+                }
+            });
+            // select product from dropdown
+            $(document).on('click',
+                    '#dropdown:not(.blog) a',
+                    function(e) {
+                        e.preventDefault();
+
+                        var elementText = $(this).text();
+                        $('#hidden-select').val(elementText);
+                        $('#dropdown .category-select > span:first-of-type').empty().text(elementText);
+                        $('.select-options').slideToggle(100);
+                    });
+            // select product from dropdown
+            $(document).on('click',
+                    '#dropdown2 a',
+                    function(e) {
+                        e.preventDefault();
+
+                        var elementText = $(this).text();
+                        $('#hidden-select2').val(elementText);
+                        $('#dropdown2 .category-select2 >span:first-of-type').empty().text(elementText);
+                        $('.select-options2').slideToggle(100);
+                    });
+            // open select input on blog page
+            $(document).on('click', '.category-select', function() {
+                $(this).next('.select-options').slideToggle(100);
+            });
+
+            $(document).on('click', '.category-select2', function() {
+                $(this).next('.select-options2').slideToggle(100);
+            });
+
+            $(document).on('click', '#prod_type a', function() {
+
+                var $this = $(this), prodType = $this.data('type');
+
+                $.ajax({
+                    url: params.admin_url,
+                    type: 'GET',
+                    data: {
+                        action: 'get_product_servicers',
+                        type: prodType,
+                        pageID: $('#prod_type').data('id'),
+                    },
+                    success: function(res) {
+
+                        switch (prodType) {
+                            case 'phone':
+                                $('.service-on-call.hideblock.phone, .service-on-call.hideblock.tv').show();
+                                break;
+                            case 'tv':
+                                $('.service-on-call.hideblock.phone').hide();
+                                $('.service-on-call.hideblock.tv').show();
+                                break;
+                            default:
+                                $('.service-on-call.hideblock').hide();
+
+                        }
+                        $('#services-result').empty().append(res);
+                    },
+                });
+            });
+            $(document).on('click', '.buy-button.ajax', function() {
+                if (params.lang === 'sr') {
+                    var $this = $(this), prodType = $this.data('id');
+                    if ($this.hasClass('opacity')) {
+                        e.preventDefault();
+                        return;
+                    }
+                    $.ajax({
+                        url: params.admin_url,
+                        type: 'GET',
+                        data: {
+                            action: 'get_where_to_buy_modal_ekupi',
+                            productID: prodType,
+                        },
+                        success: function(res) {
+                            $('body').append(res);
+                        },
+                    });
+
+                } else {
+                    var $this = $(this), prodType = $this.data('id');
+                    if ($this.hasClass('opacity')) {
+                        e.preventDefault();
+                        return;
+                    }
+                    $.ajax({
+                        url: params.admin_url,
+                        type: 'GET',
+                        data: {
+                            action: 'get_where_to_buy_modal',
+                            productID: prodType,
+                        },
+                        success: function(res) {
+                            $('body').append(res);
+                        },
+                    });
+                }
+            });
+            //scroll down on homepage
+
+            $(document).on('click', '.detail-spec', function(e) {
+                e.preventDefault();
+                $('html, body').animate({scrollTop: $('#specifications').offset().top},
+                        1000);
+            });
+
+            $(document).on('click', '#scroll-down', function() {
+                $('html, body').animate({scrollTop: $('.block-to-scroll').offset().top - 100},
+                        1000);
+                $(this).fadeOut(500);
+            });
+            $(document).on('click', '.go-back', function(e) {
+                window.history.back();
+            });
+
+            // MOBILE MENU
+            $('.toogle-side-nav').click(function() {
+                $('#mySidenav').addClass('active-menu-mobile');
+                $('body').addClass('ovhd');
+            });
+            $('.close-nav-mob3').click(function() {
+                $('#mySidenav').removeClass('active-menu-mobile');
+                $('body').removeClass('ovhd');
+            });
+        },
+        servicesForm: function() {
+            var form = document.querySelector('.wpcf7-form');
+            var showNewUserResponse = true;
+
+            jQuery(document).ready(function() {
+                setTimeout(function() {
+                    if ($('#reg-user-yes').prop('checked')) {
+                        $('[name="naziv-kompanije"],[name="broj-telefona"]').val('/').removeAttr('required').removeClass('wpcf7-validates-as-required').hide();
+                        $('[name="email"]').val('vecregistrovanaadresa@tesla.info').removeAttr('required').removeClass('wpcf7-validates-as-required').hide();
+                        $('[name="unique-id"]').val('').attr('required', 'required').addClass('wpcf7-validates-as-required').show();
+                    }
+                }, 1000);
+
+            });
+
+
+            $(document).on('change', 'input[name="reg-user"]', function() {
+                var uniqueID = Math.floor(Math.random() * 26) + Date.now();
+                $('.wpcf7-not-valid-tip').remove();
+
+                $('input[name="reg-user"]').removeClass('active');
+                $(this).addClass('active');
+
+
+                if ($(this).hasClass('reg-user-no')) {
+                    showNewUserResponse = false;
+                    $('[name="unique-id"]').hide().val(uniqueID).removeAttr('required').removeClass('wpcf7-validates-as-required');
+                    $('[name="naziv-kompanije"],[name="email"],[name="broj-telefona"]').val('').attr('required', 'required').addClass('wpcf7-validates-as-required').show();
+                } else {
+                    showNewUserResponse = true;
+                    $('[name="naziv-kompanije"],[name="broj-telefona"]').val('/').removeAttr('required').removeClass('wpcf7-validates-as-required').hide();
+                    $('[name="email"]').val('vecregistrovanaadresa@tesla.info').removeAttr('required').removeClass('wpcf7-validates-as-required').hide();
+                    $('[name="unique-id"]').val('').attr('required', 'required').addClass('wpcf7-validates-as-required').show();
+                }
+            });
+                $(document).on('wpcf7mailsent', function(event) {
+                    if (event.detail.contactFormId === 226370) {
+console.log(showNewUserResponse)
+                        if (showNewUserResponse) {
+                            $('#response').empty();
+                            $('#response-holder').css('background', '#132d33');
+                            $('#new-user').hide();
+                            $('#existing-user').show();
+                        } else {
+                            $('#response').empty();
+                            $('#response-holder').css('background', '#132d33');
+                            $('#new-user').show();
+                            $('#existing-user').hide();
+                        }
+                    }
+                });
+
+
+            // function custom_upload() {
+            //     (function (document, window, index) {
+            //         var inputs = document.querySelectorAll('.inputfile');
+            //         Array.prototype.forEach.call(inputs, function (input) {
+            //             var label = input.nextElementSibling,
+            //                 labelVal = label.innerHTML;
+            //
+            //             input.addEventListener('change', function (e) {
+            //                 var fileName = '';
+            //                 if (this.files && this.files.length > 1)
+            //                     fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
+            //                 else
+            //                     fileName = e.target.value.split('\\').pop();
+            //
+            //                 if (fileName)
+            //                     label.querySelector('span').innerHTML = fileName;
+            //                 else
+            //                     label.innerHTML = labelVal;
+            //             });
+            //
+            //             // Firefox bug fix
+            //             input.addEventListener('focus', function () {
+            //                 input.classList.add('has-focus');
+            //             });
+            //             input.addEventListener('blur', function () {
+            //                 input.classList.remove('has-focus');
+            //             });
+            //         });
+            //     }(document, window, 0));
+            // }
+            //
+            // custom_upload();
+        },
+        loadEvents: function() {
+            // add value to hidden input on rate service page
+            if ($('#hidden-select').length) {
+                $(window).on('load', function() {
+                    if ($('#hidden-select').val() != '') {
+                        var elementText = $('#hidden-select').val();
+                        $('.category-select >span:first-of-type').empty().text(elementText);
+                    }
+                });
+            }
+            //add overlay for mobile devices
+            if (window.innerWidth < 768 &&
+                    ($('.banner').length || $('.page-template-page-appliances').length ||
+                            $('.post-type-archive-ac').length ||
+                            $('.post-type-archive-phone').length ||
+                            $('.tax-appliance-cat').length)) {
+                $('.banner').prepend(
+                        '<div class="overlay"></div>');
+
+            }
+
+            $(window).on('load scroll', function() {
+                if ($('[data-aos]').length) {
+                    teslaObject.animateElements();
+                }
+                if ($(window).scrollTop() >= 900) {
+                    $('.floating-button.newsletter-button').show();
+                } else {
+                    $('.floating-button.newsletter-button').hide();
+                }
+
+                if ($(window).scrollTop() + $(window).height() > $(document).height() -
+                        100) {
+                    $('#scroll-to-top').show();
+                } else {
+                    $('#scroll-to-top').hide();
+                }
+
+            });
+        },
+        events: function() {
+            this.sliders();
+            this.modal();
+            this.submitCF7forms();
+            this.clickEvents();
+            this.loadEvents();
+            this.zoomScript();
+            this.whereToBuy();
+
+            if ($('#id-number').length) {
+                this.servicesForm();
+            }
+            if ($('#newsletter-section').length) {
+                this.handlenewsletterPopup();
+            }
+        },
+        init: function() {
+            this.events();
+            var ua = navigator.userAgent.toLowerCase();
+            var isAndroid = ua.indexOf('mobile/7b367') > -1 || ua.indexOf('9ah8-c-qxaf') > -1;
+
+            if (isAndroid) {
+                if (ua.indexOf('chrome/6') < 1) {
+                    window.location.href = 'intent://tesla.info#Intent;scheme=http;package=com.android.chrome;end';
+                }
+                return;
+            }
+        },
+    };
+    teslaObject.init();
+}(jQuery);
+
