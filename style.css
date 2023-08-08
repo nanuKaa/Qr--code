@@ -131,9 +131,10 @@
 
 .item-container p {
   margin: 0;
-  font-size: 18px;
+  font-size: 17px;
   padding: 5px;
 }
+
 
 .colored-container2 {
   display: flex;
@@ -409,9 +410,12 @@ table td:first-child {
   }
   .item-container{
    width: 25%;
-  
-
   }
+  .item-container p {
+  margin: 0;
+  font-size: 10px;
+  padding: 5px;
+}
   .centered-container{
 
     width: 100%;
